@@ -1,12 +1,21 @@
 <html>
 
 <head>
-    <title>andrasfindt.co.za</title>
+    <title>wanip</title>
+    <script>
+        fetch('https://www.cloudflare.com/cdn-cgi/trace')
+            .then(response => response.text()).then(data => {
+                let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+                let ip = data.match(ipRegex)[0];
+                return ip;
+            })
+            .then(data => {
+                document.body.textContent = data;
+            });
+    </script>
+
 </head>
 
-<body>
-    <p>hello</p>
-    <a href="ip.html">wanip</a>
-</body>
+<body><span id="wanIp"></span></body>
 
 </html>
